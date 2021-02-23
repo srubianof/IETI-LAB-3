@@ -14,7 +14,7 @@
     ```javascript
     npx create-react-app task-planner-app
     ```
-2. Create the Login.js component and the CSS if needed (use Material-UI library!)
+2. Create the Login.jsx component and the CSS if needed (use Material-UI library!)
 
 ![](images/login.png)
 
