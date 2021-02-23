@@ -15,14 +15,14 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import {useStyles} from './useStyles'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import {TaskPlanner} from "../TaskPlanner";
+import {useHistory} from "react-router";
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
-
-export function SideBar() {
+export function SideBar({userLogged, setUserLogged}) {
+    const history = useHistory();
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
@@ -57,7 +57,7 @@ export function SideBar() {
                         <MenuIcon/>
                     </IconButton>
                     <Typography variant="h6" noWrap>
-                        Mini variant drawer
+                        Task planner
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -82,22 +82,37 @@ export function SideBar() {
                 <Divider/>
 
                 <List>
-                    {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}</ListItemIcon>
-                            <ListItemText primary={text}/>
-                        </ListItem>
-                    ))}
+
+                    <ListItem>
+                        <ListItemIcon><AccountCircleIcon/></ListItemIcon>
+                        <ListItemText primary={userLogged.user}/>
+                    </ListItem>
                 </List>
                 <Divider/>
                 <div className={classes.bottomPush}>
-                    <ListItem button>
-                        <ListItemIcon>
-                            <ExitToAppIcon/>
-                            <ListItemText primary={'Logout'}/>
-                        </ListItemIcon>
-                    </ListItem>
+                    <List>
+                        {
+                            localStorage.getItem("logged")
+                                ? <ListItem button onClick={() => {
+                                    localStorage.setItem('logged', false)
+                                    setUserLogged({
+                                        user: '',
+                                        password: ''
+                                    })
+                                    history.push('/login')
+                                }
+                                }>
+                                    <ListItemIcon>
+                                        <ExitToAppIcon/>
+                                    </ListItemIcon>
+
+                                </ListItem>
+                                : <></>
+                        }
+                    </List>
                 </div>
+
+
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.toolbar}/>

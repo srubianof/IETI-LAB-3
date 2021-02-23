@@ -9,7 +9,7 @@ export const TaskPlanner = () => {
             TaskPlanner Component
             {
                 tasks.map(({description,responsible,status,dueDate})=>(
-                    <TaskCard dueDate={dueDate} description={description} responsible={responsible.email} status={status} />
+                    <TaskCard key={responsible.email} dueDate={dueDate} description={description} responsible={responsible.email} status={status} />
                 ))
             }
         </div>

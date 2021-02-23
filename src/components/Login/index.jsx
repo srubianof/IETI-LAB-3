@@ -20,7 +20,10 @@ export const Login = ({setUserLogged}) => {
             user,
             passwd
         })
-history.push('/task-planner')
+        localStorage.setItem("user", user);
+        localStorage.setItem("password", passwd);
+        localStorage.setItem("logged",true);
+        history.push('/task-planner')
     }
 
     return (

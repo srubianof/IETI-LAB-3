@@ -13,11 +13,11 @@ function App() {
     return (
         <>
             <Router>
-                {/*<Redirect from='/' to='/login'/>*/}
+                <Redirect from='/' to='/login'/>
                 <Switch>
                     <Route exaxt path="/login"
                            component={() => <Login setUserLogged={setUserLogged}/>}/>
-                    <Route path="/task-planner" component={SideBar}/>
+                    <PrivateRoute userLogged={userLogged} path="/task-planner" component={() => <SideBar userLogged={userLogged} setUserLogged={setUserLogged}/>}/>
                 </Switch>
 
             </Router>
