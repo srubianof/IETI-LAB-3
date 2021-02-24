@@ -7,7 +7,7 @@ export function PrivateRoute({component: Component, userLogged, ...rest}) {
         <Route
             {...rest}
             render={props => {
-                return userLogged === '' || userLogged ? <Component {...props} /> : <Redirect to="/login"/>
+                return userLogged.user !== '' || !userLogged ? <Redirect to="/login"/> : <Component {...props} />;
             }}
         />
     )
