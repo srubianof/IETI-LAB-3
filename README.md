@@ -2,11 +2,9 @@
 
 <h1 align="center">1.3 Task Planner Project - Front End</h1>
 
-[![npm](https://img.shields.io/badge/npm-v6.13.4-red.svg)](https://www.npmjs.com/)
-[![npx](https://img.shields.io/badge/dependencies-npx-orange)](https://www.npmjs.com/package/npx)
-[![material](https://img.shields.io/badge/dependencies-material--ui-yellow)](https://material-ui.com/)
-[![react-router](https://img.shields.io/badge/dependencies-react--router-blue)](https://reacttraining.com/react-router/)
-[![heroku](https://img.shields.io/badge/%E2%86%91_Deploy_to-Heroku-7056bf.svg)](https://www.heroku.com/)
+<h1 align="center">HEROKU LINK </h1>
+
+[HEROKU LINK](https://yeti-lab3.herokuapp.com/login)
 
 
 1. Create a new React JS project.
@@ -22,18 +20,18 @@
 
 ![](images/navigation-drawer.png)
 
-4. Create the main view that display the tasks using card layouts (https://material-ui.com/demos/cards/). 
-    This will be your model to represent a task:
+4. Create the main view that display the tasks using card layouts (https://material-ui.com/demos/cards/).
+   This will be your model to represent a task:
   ```javascript
        {
-    	"description": "some description text ",
-    	"responsible": {
-    		"name": "Santiago Carrillo",
-    		"email": "sancarbar@gmail"
-    	},
-    	"status": "ready",
-    	"dueDate": 156464645646
-    }
+    "description": "some description text ",
+        "responsible": {
+        "name": "Santiago Carrillo",
+            "email": "sancarbar@gmail"
+    },
+    "status": "ready",
+        "dueDate": 156464645646
+}
 ```
 
 
